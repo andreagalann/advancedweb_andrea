@@ -4,7 +4,7 @@ _Critical Coding for a Better Living._
 
 **Build a real, accessible, multilingual site—commit every week.**
 
-This repository is the **starting point for each student’s personal project** in the WEB ATELIER (UDIT) framework. While `web-foundations` provides the canonical lessons and `professor-course-template` manages the class instance, the **Student Project Template** is where each student designs and develops their own site. Every week, students commit progress here — _one student · one repo · one project · one commit per class_.
+This repository is the **starting point my personal project** in the WEB ATELIER (UDIT) framework. While `web-foundations` provides the canonical lessons and `professor-course-template` manages the class instance, the **Student Project Template** is where each student designs and develops their own site. Every week, students commit progress here — _one student · one repo · one project · one commit per class_.
 
 ## Purpose & Audience
 
@@ -77,9 +77,9 @@ student-project-template/
 
 ## Differences from Other Repos
 
-- `web-foundations`: shared lessons & methodology, not edited by students.
+- `web-foundations`: shared lessons & methodology.
 - `professor-course-template`: course-level repo with roster and showroom.
-- `student-project-template`: student’s own creative space; only this repo is graded per individual.
+- `student-project-template`: my own creative space 
 
 ## References
 
