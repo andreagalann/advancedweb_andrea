@@ -1,5 +1,5 @@
 header {
-  background: #fff;
+  background: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 nav {
@@ -35,4 +35,42 @@ nav ul li a {
 }
 section {
   height: 100vh;
+}
+header {
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content vertically and horizontally */
+  box-sizing: border-box; /* Include padding and border in dimensions */
+  background-size: cover; /* Ensure the illustration covers the entire header */
+}
+h1 {
+  /* Hacer que el h1 ocupe aproximadamente 300px y centrar su contenido verticalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+}
+
+/* layout*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+main {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+/* individual analisis sections */
+section {
+  margin-bottom: 3rem;
+  padding: 1rem;
+  border-radius: 8px;
+  scroll-margin-top: 70px; /* Offset for fixed nav */
+  height: auto;
 }

@@ -3,10 +3,43 @@
    General styles for the entire website
    ============================================ */
 
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Quicksand:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* Header Styles */
+header {
+  font-family: "Michroma", sans-serif;
+  text-align: center;
+  background-color: var(--bg-color);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+  font-size: 3rem;
+  color: var(--text-color);
+  margin: 0;
+  font-family: "Michroma", sans-serif;
+}
+
+header nav a {
+  font-family: "michroma", sans-serif;
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: var(--text-color);
+}
 /* CSS Reset */
 * {
-  margin: 0;
-  padding: 0;
+  margin: 1;
+  padding: 2;
   box-sizing: border-box;
 }
 
@@ -58,6 +91,7 @@ h2 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
+  font-family: "Michroma", sans-serif;
 }
 
 h3 {
