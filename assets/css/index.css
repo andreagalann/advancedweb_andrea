@@ -1,2 +1,126 @@
-@import url('http://meyerweb.com/eric/tools/css/reset/reset.css'); /* CSS Reset for browser compatibility */
-@import url('main.css'); /* Main styles */
+/* ============================================
+   BASE STYLES - index.css
+   General styles for the entire website
+   ============================================ */
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Variables */
+:root {
+  --text-color: #333;
+  --text-light: #666;
+  --bg-color: #f5f5f5;
+  --white: #ffffff;
+  --cream: #f4e8d0;
+  --border-color: #ddd;
+  --max-width: 900px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* Body Base */
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--white);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+/* Links */
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  opacity: 0.6;
+  outline: none;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Strong Text */
+strong {
+  font-weight: bold;
+}
+
+/* Main Container */
+main {
+  margin: 50px;
+  padding: 0 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 0 1rem;
+  }
+}
