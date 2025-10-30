@@ -1,0 +1,112 @@
+/*
+	Theme tokens and selectors
+	- Base light palette in :root
+	- Explicit dark palette for #theme-dark and system-dark when #theme-auto
+	- Avoids redundancy: no redefinition of light variables for #theme-light
+*/
+
+:root {
+  /* Colors (light palette) */
+
+  /**
+	 * We do NOT set `color-scheme: light;` here because it is the *default* for the browser and is only needed
+	 * if we want to signal an explicit theme. This block is the base :root for all users, so we omit it.
+	 * If users choose "Auto" and their system preference is dark, or if they choose a forced dark/light theme,
+	 * those selectors *will* explicitly set `color-scheme: dark;` or `color-scheme: light;` where appropriate.
+	 */
+
+  --color-background: #f9fafb;
+  --color-foreground: #1e293b;
+  --color-card: #ffffff;
+  --color-card-foreground: #1e293b;
+  --color-popover: #f1f5f9;
+  --color-popover-foreground: #1e293b;
+  --color-primary: #009ee0; /* Cyan */
+  --color-primary-foreground: #000000;
+  --color-secondary: #ffed00; /* Yellow */
+  --color-secondary-foreground: #000000;
+  --color-accent: #e2007a; /* Magenta */
+  --color-accent-foreground: #ffffff;
+  --color-muted: #334155;
+  --color-muted-foreground: #f1f5f9;
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-ring: #1de285;
+  --color-destructive: #ff611f;
+  --color-destructive-foreground: #ffffff;
+  --color-muted-foreground-rgb: 51, 65, 85;
+}
+
+/* Auto: follow system dark preference */
+@media (prefers-color-scheme: dark) {
+  :root:has(#theme-auto:checked) {
+    color-scheme: dark;
+    --color-background: #0f172a;
+    --color-foreground: #f8fafc;
+    --color-card: #1e293b;
+    --color-card-foreground: #f8fafc;
+    --color-popover: #1e293b;
+    --color-popover-foreground: #f8fafc;
+    --color-primary: #e2007a; /* Complementary to Cyan */
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #009ee0; /* Complementary to Yellow */
+    --color-secondary-foreground: #ffffff;
+    --color-accent: #ffed00; /* Complementary to Magenta */
+    --color-accent-foreground: #000000;
+    --color-muted: #94a3b8;
+    --color-muted-foreground: #f1f5f9;
+    --color-destructive: #ff611f;
+    --color-destructive-foreground: #0f172a;
+    --color-border: #334155;
+    --color-input: #334155;
+    --color-ring: #1de285;
+    --color-muted-foreground-rgb: 148, 163, 184;
+    /* Dark-adapted shadows */
+    --shadow-s: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-m: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Explicit light: no color redefinitions to avoid duplication */
+:root:has(#theme-light:checked) {
+  color-scheme: light;
+}
+
+/* Explicit dark */
+:root:has(#theme-dark:checked) {
+  /* 
+		We need to explicitly redefine *all* relevant custom properties (CSS variables) here
+		because the ":root:has(#theme-dark:checked)" selector is independent: it does not inherit 
+		the values from the "@media (prefers-color-scheme: dark)" block.
+
+		When "#theme-dark:checked" is used, it must override every variable that defines the palette 
+		for dark mode, otherwise any missing value would fall back to the previous scope 
+		(likely the light/default values in :root), breaking theme consistency.
+
+		See above for the complete set of dark mode color definitions. All are repeated here 
+		to avoid leaking light-theme values into explicit dark mode. 
+	*/
+  color-scheme: dark;
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+  --color-card: #1e293b;
+  --color-card-foreground: #f8fafc;
+  --color-popover: #1e293b;
+  --color-popover-foreground: #f8fafc;
+  --color-primary: #e2007a;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #009ee0;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #ffed00;
+  --color-accent-foreground: #000000;
+  --color-muted: #94a3b8;
+  --color-muted-foreground: #f1f5f9;
+  --color-border: #334155;
+  --color-input: #334155;
+  --color-ring: #1de285;
+  --color-destructive: #ff611f;
+  --color-destructive-foreground: #0f172a;
+  --color-muted-foreground-rgb: 148, 163, 184;
+  --shadow-s: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-m: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
