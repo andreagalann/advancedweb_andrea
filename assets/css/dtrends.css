@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=Quicksand:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&family=Michroma&family=Quicksand:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+.header {
+  background: radial-gradient(circle at center, #ffffff, #aa1919);
+  color: rgb(0, 0, 0);
+  padding: 2rem;
+  text-align: center;
+}
+h1 {
+  font-size: 6rem;
+  color: var(--text-color);
+  margin: 0;
+  font-family: "Michroma", sans-serif;
+}
+
+/* Parallax background with fixed attachment */
+.parallax-bg {
+  background-image: url('https://ik.imagekit.io/andreagdn27/webdesign/%D0%97%D0%B0%D1%85%D0%BE%D1%82%D0%B5%D0%BB%D0%BE%D1%81%D1%8C%20%D1%81%D0%BC%D0%B5%D0%BB%D1%8B%D1%85%20%D0%BA%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%86%D0%B8%D0%B8%CC%86,%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%D1%83%20%D1%87%D1%82%D0%BE%20%D0%BF%D0%BE%D0%B2%D1%81%D1%8E%D0%B4%D1%83%20%D1%81%D0%BA%D1%83%D1%87%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BE%D0%B4%D0%B5%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%B2%20Nano%20Banana%20%D0%BD%D0%B0%20%D1%81%D0%B5%D1%80%D0%BE%D0%BC%20%D1%84%D0%BE%D0%BD%D0%B5%20%D1%81%20%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8%20%D0%BF%D0%BE%D0%B7%D0%B0%D0%BC%D0%B8,%20%D0%B8%20%D0%B1%D0%B5%D1%81%D0%BA%D0%BE%D0%BD%D0%B5%D1%87%D0%BD%D1%8B%D0%B5%20%D0%BF.%20%D0%9F%D0%BE?updatedAt=1762279688321data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="%23764ba2" opacity="0.3"/><circle cx="800" cy="400" r="120" fill="%23764ba2" opacity="0.2"/><circle cx="1000" cy="200" r="60" fill="%23764ba2" opacity="0.4"/></svg>');
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Regular scrolling content (foreground) */
+.content {
+  background: white;
+  padding: 3rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content h2 {
+  color: #000000;
+  margin-bottom: 1rem;
+  font-family: "michroma", sans-serif;
+}
+
+.content p {
+  margin-bottom: 1rem;
+  color: #333;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.comparisonone {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-image: url(https://ik.imagekit.io/andreagdn27/webdesign/undefined.jpeg?updatedAt=1762282018355);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  border-left: 4px solid #971313;
+  border-radius: 4px;
+  font-family: "michroma", sans-serif;
+}
+.comparison {
+  margin-top: 2rem;
+  padding: 1.5rem;
+
+  color: white;
+  border-left: 4px solid #971313;
+  border-radius: 4px;
+  font-family: "michroma", sans-serif;
+}
+
+.code-box {
+  background: #000000;
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.code-box code {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
+.reflection {
+  background: #fef3c7;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  border-left: 4px solid #f59e0b;
+}
+
+.reflection strong {
+  color: #92400e;
+}
+
+/* Non-parallax comparison section */
+.normal-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%2310b981" width="1200" height="600"/><circle cx="300" cy="250" r="100" fill="%23059669" opacity="0.3"/><circle cx="900" cy="350" r="80" fill="%23059669" opacity="0.4"/></svg>');
+  min-height: 400px;
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* JavaScript-based Parallax Section */
+.parallax-js-section {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.layer-back {
+  font-size: 8rem;
+  opacity: 0.2;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.layer-middle {
+  font-size: 4rem;
+  opacity: 0.5;
+  color: #f59e0b;
+  font-weight: bold;
+}
+
+.layer-front {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Image layers for parallax */
+.parallax-image-section {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  background: #1a202c;
+}
+
+.image-layer {
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.image-layer-1 {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a202c" width="1200" height="800"/><circle cx="200" cy="600" r="150" fill="%23667eea" opacity="0.1"/><circle cx="1000" cy="200" r="200" fill="%23764ba2" opacity="0.1"/></svg>');
+  z-index: 1;
+}
+
+.image-layer-2 {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><circle cx="600" cy="400" r="100" fill="%23f59e0b" opacity="0.3"/><circle cx="300" cy="200" r="80" fill="%2310b981" opacity="0.3"/><circle cx="900" cy="600" r="120" fill="%23ef4444" opacity="0.3"/></svg>');
+  z-index: 2;
+}
+
+.image-layer-3 {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><text x="600" y="400" text-anchor="middle" font-size="80" fill="white" opacity="0.8" font-family="Arial">⛰️ Mountains</text></svg>');
+  z-index: 3;
+}
+
+.speed-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  z-index: 10;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .parallax-bg,
+  .normal-bg {
+    background-attachment: scroll;
+    min-height: 300px;
+    font-size: 1.5rem;
+  }
+
+  .content {
+    padding: 2rem 1rem;
+  }
+
+  .parallax-js-section,
+  .parallax-image-section {
+    height: 400px;
+  }
+
+  .layer-back {
+    font-size: 4rem;
+  }
+  .layer-middle {
+    font-size: 2rem;
+  }
+  .layer-front {
+    font-size: 1.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: rgb(20, 20, 20);
+  margin-top: 1rem;
+  font-family: "Michroma", sans-serif;
+}
+
+#subtitle-main {
+  font-size: 1rem;
+}
+
+.bold1 {
+  font-size: 1rem;
+  font-family: "michroma", sans-serif;
+}
+#bold-main {
+  color: #971313;
+}
