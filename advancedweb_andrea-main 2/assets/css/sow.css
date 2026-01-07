@@ -1,0 +1,90 @@
+header {
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%; /* Ensure the nav spans the full width */
+  padding: 0.5rem 1rem; /* Add consistent padding */
+  background: #fff; /* Ensure the nav has a background color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+  border-bottom: 1px solid #eaeaea; /* Add a border for a clean separation */
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 1rem 0 1rem; /* Add top padding to avoid overlap with fixed nav */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  height: 60px; /* Set a height for the nav */
+  background: #fff;
+  width: 100%; /* Ensure the nav spans the full width */
+  height: 30px;
+  z-index: 1000;
+  box-sizing: border-box; /* Include padding in height calculation */
+}
+nav ul li {
+  margin-right: 1rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+section {
+  height: 100vh;
+}
+header {
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content vertically and horizontally */
+  box-sizing: border-box; /* Include padding and border in dimensions */
+  background-size: cover; /* Ensure the illustration covers the entire header */
+}
+h1 {
+  /* Hacer que el h1 ocupe aproximadamente 300px y centrar su contenido verticalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+}
+
+/* layout*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+main {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+/* individual analisis sections */
+section {
+  margin-bottom: 3rem;
+  padding: 1rem;
+  border-radius: 8px;
+  scroll-margin-top: 70px; /* Offset for fixed nav */
+  height: auto;
+}
+
+/* Hamburger icon animation (optional) */
+.hamburger span {
+  transition: 0.3s;
+}
+.nav-toggle:checked + .hamburger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle:checked + .hamburger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
