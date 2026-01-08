@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design by Andrea</title>
+
+    <!-- Adobe Fonts (Scale VF + Acumin Pro) -->
+    <link rel="stylesheet" href="https://use.typekit.net/fvp4ryh.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER (fixed) -->
+    <header class="site-header">
+      <a class="brand" href="#home">DESIGN BY ANDREA ©</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link is-active" href="#home">WELCOME</a>
+        <a class="nav-link" href="#services">SERVICES</a>
+        <a class="nav-link" href="#works">WORKS</a>
+        <a class="nav-link" href="#about">ABOUT</a>
+        <a class="nav-link" href="#contact">CONTACT</a>
+      </nav>
+    </header>
+
+    <!-- SCROLL SNAP WRAPPER -->
+    <main class="snap" id="snap">
+      <!-- HERO (screen 1) -->
+      <section class="section hero" id="home">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <h1 class="claim">
+              DESIGNING<br />
+              VISUAL IDENTITIES<br />
+              WITH PURPOSE.
+            </h1>
+
+            <!-- Wordmark en UNA sola línea -->
+            <div class="wordmark" aria-label="Design by Andrea wordmark">
+              DESIGN BY ANDREA ©
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <img class="dni" src="images/DNI.png" alt="DNI visual" />
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENT (screen 2) -->
+      <section class="section statement" id="statement">
+        <div class="statement-inner">
+          <p class="statement-text">
+            I help brands exist in a different way.<br />
+            Through a 360° approach<br />
+            strategy, design and digital<br />
+            I create modern and distinctive brand universes.<br />
+            Above all, memorable ones.<br />
+            Because standing out is essential.<br />
+            It’s not a concept, it’s my standard.
+          </p>
+        </div>
+      </section>
+
+      <!-- SERVICES (screen 3) - UNA PANTALLA CON MÚLTIPLES SECCIONES -->
+      <section class="section services" id="services" aria-label="Services">
+        <div class="services-top">
+          <div class="services-title">Services</div>
+        </div>
+
+        <div class="services-container">
+          <!-- Sección 1: BRANDING -->
+          <div class="service-section" data-service="branding">
+            <button class="service-button" data-key="branding" type="button">
+              <span class="service-label">BRANDING</span>
+            </button>
+          </div>
+
+          <!-- Sección 2: WEB DESIGN -->
+          <div class="service-section" data-service="web">
+            <button class="service-button" data-key="web" type="button">
+              <span class="service-label">WEB DESIGN</span>
+            </button>
+          </div>
+
+          <!-- Sección 3: CREATIVE SUPPORT -->
+          <div class="service-section" data-service="support">
+            <button class="service-button" data-key="support" type="button">
+              <span class="service-label">CREATIVE SUPPORT</span>
+            </button>
+          </div>
+
+          <!-- Sección 4: SOCIAL MEDIA -->
+          <div class="service-section" data-service="social">
+            <button class="service-button" data-key="social" type="button">
+              <span class="service-label">SOCIAL MEDIA</span>
+            </button>
+          </div>
+
+          <a class="services-cta" href="#works">VIEW SERVICES</a>
+        </div>
+
+        <!-- Imágenes flotantes con parallax -->
+        <div class="services-floats" id="servicesStage">
+          <img
+            class="float-img is-active"
+            data-key="branding"
+            src="images/c4.png"
+            alt="Branding project"
+          />
+          <img
+            class="float-img is-active"
+            data-key="web"
+            src="images/webdesign.png"
+            alt="Web design project"
+          />
+          <img
+            class="float-img is-active"
+            data-key="support"
+            src="images/magzine.png"
+            alt="Creative support project"
+          />
+          <img
+            class="float-img is-active"
+            data-key="social"
+            src="images/onits.png"
+            alt="Social media project"
+          />
+        </div>
+      </section>
+
+      <!-- placeholder sections (para que no se rompan anchors) -->
+      <section class="section" id="works"></section>
+      <section class="section" id="about"></section>
+      <section class="section" id="contact"></section>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
