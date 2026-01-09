@@ -226,3 +226,18 @@
     savedPositions = {};
   };
 })();
+
+// ============================================
+// FOOTER TOGGLE - Collapsible footer
+// ============================================
+(() => {
+  const footerToggle = document.querySelector(".footer-toggle");
+  const footerContent = document.getElementById("footerContent");
+
+  if (!footerToggle || !footerContent) return;
+
+  footerToggle.addEventListener("click", () => {
+    const isExpanded = footerToggle.getAttribute("aria-expanded") === "true";
+    footerToggle.setAttribute("aria-expanded", !isExpanded);
+  });
+})();
