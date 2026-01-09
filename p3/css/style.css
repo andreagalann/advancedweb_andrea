@@ -751,7 +751,7 @@ body {
 .contact-top {
   height: 200vh;
   width: 100%;
-  background: url("../images/yo2.jpg") center 40% / 100% no-repeat;
+  background: url("../images/yo2.jpg") center 30% / 100% no-repeat;
   position: relative;
   display: flex;
   align-items: center;
@@ -792,10 +792,16 @@ body {
 .contact-footer {
   background: #0a0a0a;
   color: #fff;
-  position: relative;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: clamp(12px, 2vh, 16px) var(--pad-x);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Toggle Button */
@@ -858,8 +864,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-family: "scale-variable", sans-serif;
-  font-variation-settings: "wght" 400, "wdth" 100;
+  font-family: "acumin-pro", sans-serif;
   font-size: clamp(11px, 1.2vw, 14px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -910,6 +915,8 @@ body {
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .footer-social-narrow {
@@ -922,8 +929,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: "scale-variable", sans-serif;
-  font-variation-settings: "wght" 400, "wdth" 100;
+  font-family: "acumin-pro", sans-serif;
   font-size: clamp(11px, 1vw, 12px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -957,8 +963,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-  }
-
+    font-family: "acumin-pro", sans-serif;
   .footer-social-narrow {
     width: 100%;
     flex-direction: column;
@@ -972,11 +977,16 @@ body {
 .contact-footer {
   background: #0a0a0a;
   color: #fff;
-  padding: clamp(40px, 5vh, 60px) var(--pad-x);
-  flex: 1;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: clamp(12px, 2vh, 16px) var(--pad-x);
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-container-narrow {
@@ -991,8 +1001,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-family: "scale-variable", sans-serif;
-  font-variation-settings: "wght" 400, "wdth" 100;
+  font-family: "acumin-pro", sans-serif;
   font-size: clamp(11px, 1.2vw, 14px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1026,8 +1035,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: clamp(20px, 3vw, 40px);
-  padding-top: clamp(20px, 3vh, 30px);
+  gap: clamp(30px, 3vw, 50px);
+  padding-top: clamp(20px, 2vh, 30px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1043,6 +1052,8 @@ body {
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .footer-social-narrow {
@@ -1055,8 +1066,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: "scale-variable", sans-serif;
-  font-variation-settings: "wght" 400, "wdth" 100;
+  font-family: "acumin-pro", sans-serif;
   font-size: clamp(11px, 1vw, 12px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1106,19 +1116,21 @@ body {
 /* Footer Marquee */
 .footer-marquee {
   position: absolute;
-  bottom: clamp(40px, 6vh, 100px);
+  bottom: -10px;
   left: 0;
   width: 100%;
   overflow: hidden;
   background: transparent;
   padding: clamp(16px, 2vh, 24px) 0;
   pointer-events: none;
+  z-index: 2;
 }
 
 .marquee-content {
   display: flex;
   white-space: nowrap;
-  animation: marquee 25s linear infinite;
+  animation: marquee 15s linear infinite;
+  will-change: transform;
 }
 
 .marquee-content span {
