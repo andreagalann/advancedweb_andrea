@@ -964,6 +964,8 @@ body {
     align-items: flex-start;
     gap: 15px;
     font-family: "acumin-pro", sans-serif;
+  }
+
   .footer-social-narrow {
     width: 100%;
     flex-direction: column;
