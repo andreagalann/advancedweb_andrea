@@ -29,6 +29,28 @@
   // Botones - hover para cambiar imagen activa
   buttons.forEach((btn) => {
     btn.addEventListener("mouseenter", () => setActive(btn.dataset.key));
+    // Click opens the detailed service panel (if available)
+    btn.addEventListener("click", (e) => {
+      const key = btn.dataset.key;
+      const panel = document.querySelector(
+        '.service-screen[data-service="' + key + '"]'
+      );
+      const snapContainer = document.querySelector(".snap");
+      if (!panel) return; // nothing to open
+      // toggle panel open/close
+      const isOpen = panel.classList.contains("open");
+      if (isOpen) {
+        panel.classList.remove("open");
+        if (snapContainer) snapContainer.classList.remove("no-scroll");
+      } else {
+        panel.classList.add("open");
+        if (snapContainer) snapContainer.classList.add("no-scroll");
+        // ensure panel has focus for accessibility
+        const focusable = panel.querySelector(".service-head") || panel;
+        focusable.setAttribute("tabindex", "-1");
+        focusable.focus();
+      }
+    });
   });
 
   // ============================================
@@ -227,6 +249,31 @@
   };
 })();
 
+// Close controls for service panels
+(() => {
+  document.addEventListener("click", (e) => {
+    const close = e.target.closest && e.target.closest(".service-close");
+    if (!close) return;
+    const panel = close.closest(".service-screen");
+    const snapContainer = document.querySelector(".snap");
+    if (panel) {
+      panel.classList.remove("open");
+      if (snapContainer) snapContainer.classList.remove("no-scroll");
+    }
+  });
+
+  // close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".service-screen.open").forEach((p) => {
+        p.classList.remove("open");
+      });
+      const snapContainer = document.querySelector(".snap");
+      if (snapContainer) snapContainer.classList.remove("no-scroll");
+    }
+  });
+})();
+
 // ============================================
 // ABOUT: mobile slide-up editorial panel
 // ============================================
@@ -330,6 +377,12 @@
   function toggleMenu() {
     const open = nav.classList.toggle("open");
     hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+    // prevent background scrolling when menu is open
+    const snap = document.querySelector('.snap');
+    if (snap) {
+      if (open) snap.classList.add('no-scroll');
+      else snap.classList.remove('no-scroll');
+    }
   }
 
   hamburger.addEventListener("click", (e) => {
@@ -342,6 +395,8 @@
     link.addEventListener("click", () => {
       nav.classList.remove("open");
       hamburger.setAttribute("aria-expanded", "false");
+      const snap = document.querySelector('.snap');
+      if (snap) snap.classList.remove('no-scroll');
     });
   });
 
@@ -351,6 +406,8 @@
     if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
       nav.classList.remove("open");
       hamburger.setAttribute("aria-expanded", "false");
+      const snap = document.querySelector('.snap');
+      if (snap) snap.classList.remove('no-scroll');
     }
   });
 })();

@@ -74,8 +74,8 @@
         <div class="services-top">
           <div class="services-title">Services</div>
         </div>
-
-        <div class="services-container">
+          <!-- Services content: primary list + detailed service screen -->
+          <div class="services-container">
           <!-- Sección 1: BRANDING -->
           <div class="service-section" data-service="branding">
             <button class="service-button" data-key="branding" type="button">
@@ -105,6 +105,49 @@
           </div>
 
           <a class="services-cta" href="#works">VIEW SERVICES</a>
+        </div>
+
+        <!-- Detailed service screen: Branding (first) -->
+        <div class="service-screen branding panel" data-service="branding" aria-labelledby="branding-title">
+          <div class="service-inner">
+          <div class="service-left">
+            <h1 id="branding-title" class="service-head">Branding</h1>
+
+            <ul class="service-list">
+              <li>Strategy-driven identity</li>
+              <li>Visual systems</li>
+              <li>Brand strategy</li>
+              <li>Concept development</li>
+              <li>Visual foundations</li>
+              <li>Purpose &amp; values</li>
+            </ul>
+
+            <hr class="service-divider" />
+
+            <div class="service-copy">
+              <p>
+                Building a brand starts with understanding what you want to say,
+                who you are speaking to, and why it matters. This service is
+                designed for those who want to establish strong foundations
+                before moving into the visual phase. We focus on the core:
+                values, purpose, tone of voice and positioning.
+              </p>
+
+              <p>
+                The goal is to turn intuition into intention. Each outcome
+                becomes the base for a clear, consistent and aligned brand
+                identity, capable of growing with direction and meaning.
+              </p>
+            </div>
+          </div>
+
+          <div class="service-right">
+            <div class="service-media">
+              <img src="images/mok2.png" alt="Branding example" />
+            </div>
+          </div>
+          </div>
+          <button class="service-close" aria-label="Close service">×</button>
         </div>
 
         <!-- Imágenes flotantes con parallax -->
