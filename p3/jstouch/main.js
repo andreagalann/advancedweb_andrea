@@ -26,9 +26,9 @@
   // Default
   setActive("branding");
 
-  // Botones - click para cambiar imagen activa
+  // Botones - hover para cambiar imagen activa
   buttons.forEach((btn) => {
-    btn.addEventListener("click", () => setActive(btn.dataset.key));
+    btn.addEventListener("mouseenter", () => setActive(btn.dataset.key));
   });
 
   // ============================================

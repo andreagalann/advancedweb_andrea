@@ -276,7 +276,7 @@ body {
 }
 
 .service-button.is-active .service-label {
-  color: #000;
+  color: #9b9b9b;
   opacity: 1;
 }
 
@@ -336,7 +336,7 @@ body {
   animation: floaty 5.2s ease-in-out infinite;
 }
 
-.float-img[data-key="branding"].is-active {
+.float-img.is-active [data-key="branding"] {
   animation: floatyHorizontal 7.5s ease-in-out infinite;
 }
 
@@ -685,7 +685,7 @@ body {
   margin-left: auto;
   margin-top: auto;
   margin-bottom: auto;
-  height: calc(89vh - var(--header-h));
+  height: calc(90vh - var(--header-h));
   width: calc(65vw - var(--pad-x) * 2);
 }
 
@@ -734,4 +734,52 @@ body {
   .about-image {
     max-width: 100%;
   }
+}
+
+/* =========================
+   CONTACT SECTION
+   ========================= */
+
+.section.contact {
+  height: 100vh;
+  scroll-snap-align: start;
+  background: url("../images/yo2.jpg") center center / cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--pad-y) var(--pad-x);
+}
+
+.section.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 50, 40, 0.5);
+  z-index: 1;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.contact-headline {
+  font-family: "scale-variable", sans-serif;
+  font-variation-settings: "wght" 400, "wdth" 100;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 clamp(16px, 2vh, 24px) 0;
+}
+
+.contact-credit {
+  font-family: "scale-variable", sans-serif;
+  font-variation-settings: "wght" 400, "wdth" 100;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: #fff;
+  margin: 0;
 }
