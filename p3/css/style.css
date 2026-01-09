@@ -94,6 +94,14 @@ body {
   scroll-margin-top: var(--header-h);
 }
 
+/* On smaller screens allow sections to grow to fit content so text isn't clipped */
+@media (max-width: 900px) {
+  .section {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
 /* ==========
    Hero
 ========== */
@@ -464,6 +472,98 @@ body {
   }
 }
 
+/* Ensure service thumbnails are fully visible and not cut off */
+@media (max-width: 900px) {
+  .services-container {
+    padding-bottom: 220px; /* larger to guarantee space for thumbnails + footer */
+  }
+
+  .services-floats {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto 24px auto;
+    padding-bottom: 8px;
+    width: 100%;
+    z-index: 3;
+    overflow: visible;
+  }
+
+  .float-img {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    width: clamp(70px, 18vw, 120px);
+    margin: 0 6px;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-container {
+    padding-bottom: 260px;
+  }
+
+  .services-floats {
+    margin-bottom: 40px;
+  }
+
+  .float-img {
+    width: clamp(56px, 22vw, 100px);
+  }
+}
+
+/* Final responsive tweaks for Services: ensure thumbnails are visible and centered */
+@media (max-width: 900px) {
+  .services-container {
+    padding-bottom: 80px; /* leave room for thumbnails */
+  }
+
+  .services-floats {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    padding-bottom: 8px;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .float-img {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    width: clamp(70px, 20vw, 120px);
+    margin: 0 6px;
+    pointer-events: none;
+  }
+
+  .services-cta {
+    margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-container {
+    padding-bottom: 120px;
+  }
+
+  .services-floats {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .float-img {
+    width: clamp(56px, 22vw, 100px);
+    margin: 0 4px;
+  }
+}
+
 /* ==========
    Responsive
 ========== */
@@ -485,6 +585,84 @@ body {
   }
   .wordmark {
     font-size: clamp(44px, 12vw, 92px);
+  }
+
+  .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    border: none;
+    background: transparent;
+    width: 48px;
+    height: 48px;
+    margin-left: 12px;
+    cursor: pointer;
+    z-index: 60;
+  }
+
+  .hamburger-box {
+    width: 22px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    width: 22px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    transition: transform 200ms ease, opacity 200ms ease;
+  }
+
+  .hamburger-inner {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hamburger-inner::before {
+    content: "";
+    top: -7px;
+  }
+
+  .hamburger-inner::after {
+    content: "";
+    top: 7px;
+  }
+
+  /* Nav when opened */
+  .nav.open {
+    display: flex;
+    position: absolute;
+    top: calc(var(--header-h));
+    right: var(--pad-x);
+    flex-direction: column;
+    gap: 8px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 60;
+  }
+
+  .nav.open .nav-link {
+    padding: 8px 12px;
+    display: block;
+    white-space: nowrap;
+  }
+
+  /* reduce large wordmark and claim on small screens */
+  .claim {
+    font-size: clamp(20px, 5.2vw, 28px);
+    margin-top: clamp(16px, 6vh, 40px);
+  }
+
+  .wordmark {
+    font-size: clamp(28px, 10vw, 56px);
   }
 
   .service-word {
@@ -511,6 +689,25 @@ body {
   .float-img[data-key="social"] {
     left: 58%;
     top: 66%;
+  }
+
+  /* Place the small "Services" label into the normal flow on smaller screens
+     so it doesn't overlap the large service headings. */
+  .services-top {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    display: block;
+    pointer-events: auto;
+    margin: clamp(8px, 3vh, 20px) 0;
+    text-align: center;
+    z-index: 3;
+  }
+
+  .services-container {
+    margin-top: clamp(6px, 2.5vh, 18px);
+    padding-top: 0;
   }
 }
 /* =========================
@@ -733,6 +930,212 @@ body {
 
   .about-image {
     max-width: 100%;
+  }
+}
+
+/* Ensure About content fully visible and centered on small screens */
+@media (max-width: 900px) {
+  .about-grid {
+    padding: calc(var(--pad-y) + 8px) var(--pad-x) 40px;
+    align-items: start;
+  }
+
+  .about-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .about-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-right {
+    width: 100%;
+    margin: 0;
+    padding: 0 12px;
+  }
+
+  .about-headline {
+    margin-top: 8px;
+  }
+}
+
+/* Further reduce About typography and image on medium screens */
+@media (max-width: 900px) {
+  .about-headline {
+    font-size: clamp(18px, 5.2vw, 24px);
+    line-height: 1.08;
+    margin-bottom: 8px;
+  }
+
+  .about-text {
+    font-size: clamp(14px, 3.6vw, 15px);
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .about-image {
+    max-width: 280px;
+    width: 60%;
+    margin: 0 auto 12px;
+    display: block;
+    height: auto;
+  }
+
+  .about-right {
+    padding-bottom: 24px;
+  }
+}
+
+/* Aggressive reduction for small screens */
+@media (max-width: 480px) {
+  .about-headline {
+    font-size: clamp(16px, 6.5vw, 20px);
+    line-height: 1.02;
+    margin-bottom: 6px;
+  }
+
+  .about-text {
+    font-size: clamp(13px, 4.5vw, 14px);
+    line-height: 1.5;
+  }
+
+  .about-image {
+    max-width: 160px;
+    width: 48%;
+    margin: 0 auto 10px;
+    display: block;
+  }
+
+  .about-grid {
+    gap: 18px;
+    padding-bottom: 56px;
+  }
+}
+
+/* Aggressive reductions and hero image placement for very small screens */
+@media (max-width: 420px) {
+  /* About text reductions */
+  .about-headline {
+    font-size: 14px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .about-text {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .about-image {
+    max-width: 110px;
+    width: 40%;
+    margin: 0 auto 8px;
+  }
+
+  /* Hero: center the image horizontally and pin it to the bottom of the hero area */
+  .hero {
+    padding-top: calc(var(--header-h));
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: calc(100vh - var(--header-h));
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+
+  .hero-left {
+    padding-bottom: 0;
+  }
+
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 12px;
+    overflow: visible;
+  }
+
+  .dni {
+    width: clamp(90px, 48vw, 220px);
+    max-width: 220px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Slightly reduce claim and wordmark to fit */
+  .claim {
+    font-size: clamp(18px, 5.8vw, 24px);
+    margin-top: clamp(12px, 6vh, 28px);
+  }
+
+  .wordmark {
+    font-size: clamp(20px, 10vw, 40px);
+  }
+}
+
+/* Reduce about image size on tablet/mobile to avoid overlap */
+@media (max-width: 900px) {
+  .about-image {
+    max-width: 320px;
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-image {
+    max-width: 220px;
+    width: 66%;
+    margin: 0 auto 8px auto;
+    display: block;
+  }
+
+  .about-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-intro {
+    gap: 18px;
+  }
+}
+
+/* Fix clipping in About on small screens */
+@media (max-width: 900px) {
+  .about-right {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 24px;
+  }
+
+  .about-headline {
+    font-size: clamp(20px, 6.5vw, 28px);
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .about-text {
+    max-width: 100%;
+    font-size: clamp(14px, 3.8vw, 16px);
+    line-height: 1.6;
+  }
+
+  .about-grid {
+    gap: clamp(18px, 4vw, 36px);
+    padding-bottom: 32px;
   }
 }
 
@@ -1118,21 +1521,31 @@ body {
 /* Footer Marquee */
 .footer-marquee {
   position: absolute;
-  bottom: -10px;
+  bottom: 60px;
   left: 0;
   width: 100%;
   overflow: hidden;
   background: transparent;
   padding: clamp(16px, 2vh, 24px) 0;
-  pointer-events: none;
-  z-index: 2;
+  pointer-events: auto;
+  z-index: 3;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 15s linear infinite;
+  will-change: transform;
+}
+
+.footer-marquee:hover .marquee-track {
+  animation-play-state: paused;
 }
 
 .marquee-content {
   display: flex;
   white-space: nowrap;
-  animation: marquee 15s linear infinite;
-  will-change: transform;
+  flex-shrink: 0;
 }
 
 .marquee-content span {
@@ -1152,6 +1565,200 @@ body {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* Responsive adjustments for the footer marquee */
+@media (max-width: 900px) {
+  .footer-marquee {
+    bottom: 40px;
+    padding: clamp(12px, 2vh, 18px) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-marquee {
+    bottom: 18px;
+    padding: clamp(8px, 1vh, 12px) 0;
+  }
+
+  .marquee-track {
+    animation-duration: 12s;
+  }
+
+  .marquee-content span {
+    font-size: clamp(14px, 3.5vw, 18px);
+  }
+}
+
+/* Additional responsive fixes to avoid overlapping text/images with the fixed marquee */
+@media (max-width: 900px) {
+  .contact-top {
+    /* don't force an extremely tall hero on small screens */
+    height: auto;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center 30%;
+    padding-bottom: 120px;
+  }
+
+  .contact-content {
+    padding-left: clamp(16px, 4vw, 36px);
+    z-index: 3;
+    position: relative;
+  }
+
+  /* Make room for the fixed marquee so content isn't hidden */
+  .snap {
+    padding-bottom: 140px;
+  }
+
+  .footer-marquee {
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-top {
+    min-height: 100vh;
+    background-position: center 40%;
+    padding-bottom: 140px;
+  }
+
+  .contact-content {
+    padding-left: 16px;
+    z-index: 3;
+  }
+
+  /* Ensure main scroll area leaves space for fixed marquee and sticky footer */
+  .snap {
+    padding-bottom: 180px;
+  }
+
+  .footer-marquee {
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+/* Hide service thumbnails on small screens if they interfere with layout */
+@media (max-width: 900px) {
+  .services-floats {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-floats {
+    display: none !important;
+  }
+}
+
+/* Services: responsive fixes to avoid missing elements and overlap */
+@media (max-width: 900px) {
+  .services-container {
+    padding: var(--pad-x) 20px;
+    gap: clamp(18px, 4vh, 34px);
+    max-width: 100%;
+  }
+
+  .service-section {
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .service-label {
+    font-size: clamp(20px, 8vw, 48px);
+    white-space: normal;
+    text-align: center;
+    line-height: 1.05;
+    color: #9b9b9b;
+    padding: 6px 12px;
+    word-break: break-word;
+  }
+
+  /* Bring float images inline as small thumbnails below the service list */
+  .services-floats {
+    position: static;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .float-img {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    width: clamp(80px, 22vw, 140px);
+    margin: 0 6px;
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-label {
+    font-size: clamp(16px, 9vw, 36px);
+    padding: 4px 8px;
+  }
+
+  .services-container {
+    gap: 24px;
+    padding: 12px;
+  }
+
+  .service-section {
+    min-height: 140px;
+  }
+
+  .float-img {
+    width: clamp(60px, 26vw, 120px);
+  }
+
+  /* ensure thumbnails don't cover CTA or other controls */
+  .services-cta {
+    margin-bottom: 28px;
+  }
+}
+
+/* Mobile: fix marquee to viewport bottom and avoid overlapping content */
+@media (max-width: 480px) {
+  .footer-marquee {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 999;
+    pointer-events: none;
+    background: transparent;
+  }
+
+  /* Ensure animation pace is comfortable on small screens */
+  .marquee-track {
+    animation-duration: 14s;
+  }
+
+  /* Slightly smaller text and spacing */
+  .marquee-content span {
+    font-size: clamp(13px, 3.5vw, 16px);
+    padding-right: 1.5em;
+    color: rgba(255, 255, 255, 0.38);
+  }
+
+  /* Add bottom padding so main content isn't hidden behind fixed marquee */
+  .contact-top {
+    padding-bottom: 72px;
   }
 }
 

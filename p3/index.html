@@ -15,7 +15,13 @@
     <header class="site-header">
       <a class="brand" href="#home">DESIGN BY ANDREA ©</a>
 
-      <nav class="nav" aria-label="Primary">
+      <button class="hamburger" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <nav id="primary-nav" class="nav" aria-label="Primary">
         <a class="nav-link is-active" href="#home">WELCOME</a>
         <a class="nav-link" href="#services">SERVICES</a>
         <a class="nav-link" href="#works">WORKS</a>
@@ -266,13 +272,24 @@
         </h2>
       </div>
       <div class="footer-marquee">
-        <div class="marquee-content">
-          <span>DESIGN BY ANDREA © </span>
-          <span>DESIGN BY ANDREA © </span>
-          <span>DESIGN BY ANDREA © </span>
-          <span>DESIGN BY ANDREA © </span>
-          <span>DESIGN BY ANDREA © </span>
-          <span>DESIGN BY ANDREA © </span>
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+          </div>
+
+          <div class="marquee-content" aria-hidden="true">
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+          </div>
         </div>
       </div>
     </div>

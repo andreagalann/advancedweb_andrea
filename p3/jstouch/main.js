@@ -241,3 +241,39 @@
     footerToggle.setAttribute("aria-expanded", !isExpanded);
   });
 })();
+
+// ============================================
+// HAMBURGER MENU - mobile
+// ============================================
+(() => {
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector(".nav");
+  if (!hamburger || !nav) return;
+
+  function toggleMenu() {
+    const open = nav.classList.toggle("open");
+    hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close when clicking a nav link
+  nav.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!nav.classList.contains("open")) return;
+    if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+      nav.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+    }
+  });
+})();
