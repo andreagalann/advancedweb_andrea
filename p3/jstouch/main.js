@@ -31,6 +31,11 @@
     btn.addEventListener("mouseenter", () => setActive(btn.dataset.key));
     // Click opens the detailed service panel (if available)
     btn.addEventListener("click", (e) => {
+      // If this service-button is an anchor (<a>), allow normal navigation
+      if (btn.tagName && btn.tagName.toLowerCase() === "a") {
+        return; // do not intercept anchors; browser will navigate to href
+      }
+
       const key = btn.dataset.key;
       const panel = document.querySelector(
         '.service-screen[data-service="' + key + '"]'

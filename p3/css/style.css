@@ -14,6 +14,11 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Only add extra bottom padding when footer is fixed (services page) */
+body.services-page {
+  padding-bottom: clamp(48px, 6vh, 64px);
+}
+
 :root {
   --pad-x: clamp(22px, 3.2vw, 48px);
   --pad-y: clamp(18px, 2.4vw, 34px);
@@ -1564,9 +1569,18 @@ a.service-button:visited {
   flex-direction: column;
 }
 
+/* Make contact section size to its content (avoid an empty 100vh block) */
+.section.contact {
+  height: auto !important;
+  min-height: 0 !important;
+  scroll-snap-align: none;
+  padding-top: 0;
+}
+
 /* Contact Top - with image and text */
 .contact-top {
-  height: 200vh;
+  /* reduce from an excessive fixed 200vh to occupy a single viewport (minus header) */
+  min-height: calc(100vh - var(--header-h));
   width: 100%;
   background: url("../images/yo2.jpg") center 30% / 100% no-repeat;
   position: relative;
@@ -1609,6 +1623,7 @@ a.service-button:visited {
 .contact-footer {
   background: #0a0a0a;
   color: #fff;
+  /* default: sticky so pages other than services behave normally */
   position: sticky;
   bottom: 0;
   left: 0;
@@ -1674,7 +1689,7 @@ a.service-button:visited {
   max-width: 900px;
   display: flex;
   flex-direction: column;
-  gap: clamp(500px, 8vh, 100px);
+  gap: clamp(12px, 2vh, 20px);
 }
 
 .footer-top-narrow {
@@ -1687,7 +1702,7 @@ a.service-button:visited {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: clamp(20px, 3vh, 30px);
+  padding-bottom: clamp(8px, 1.2vh, 12px);
 }
 
 .footer-main-narrow {
@@ -1699,7 +1714,7 @@ a.service-button:visited {
 .footer-wordmark-narrow {
   font-family: "scale-variable", sans-serif;
   font-variation-settings: "wght" 500, "wdth" 100;
-  font-size: clamp(32px, 6vw, 80px);
+  font-size: clamp(16px, 3.5vw, 28px);
   letter-spacing: -0.02em;
   text-transform: uppercase;
   line-height: 1;
@@ -1716,7 +1731,7 @@ a.service-button:visited {
   justify-content: space-between;
   align-items: flex-end;
   gap: clamp(20px, 3vw, 40px);
-  padding-top: clamp(20px, 3vh, 30px);
+  padding-top: clamp(8px, 1.2vh, 12px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1796,16 +1811,27 @@ a.service-button:visited {
 .contact-footer {
   background: #0a0a0a;
   color: #fff;
+  /* default: sticky so pages other than services behave normally */
   position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 5;
-  padding: clamp(12px, 2vh, 16px) var(--pad-x);
+  padding: 8px var(--pad-x);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Only fix the footer on the Services page */
+.services-page .contact-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .footer-container-narrow {
