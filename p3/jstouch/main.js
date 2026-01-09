@@ -378,10 +378,10 @@
     const open = nav.classList.toggle("open");
     hamburger.setAttribute("aria-expanded", open ? "true" : "false");
     // prevent background scrolling when menu is open
-    const snap = document.querySelector('.snap');
+    const snap = document.querySelector(".snap");
     if (snap) {
-      if (open) snap.classList.add('no-scroll');
-      else snap.classList.remove('no-scroll');
+      if (open) snap.classList.add("no-scroll");
+      else snap.classList.remove("no-scroll");
     }
   }
 
@@ -395,8 +395,8 @@
     link.addEventListener("click", () => {
       nav.classList.remove("open");
       hamburger.setAttribute("aria-expanded", "false");
-      const snap = document.querySelector('.snap');
-      if (snap) snap.classList.remove('no-scroll');
+      const snap = document.querySelector(".snap");
+      if (snap) snap.classList.remove("no-scroll");
     });
   });
 
@@ -406,8 +406,8 @@
     if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
       nav.classList.remove("open");
       hamburger.setAttribute("aria-expanded", "false");
-      const snap = document.querySelector('.snap');
-      if (snap) snap.classList.remove('no-scroll');
+      const snap = document.querySelector(".snap");
+      if (snap) snap.classList.remove("no-scroll");
     }
   });
 })();
