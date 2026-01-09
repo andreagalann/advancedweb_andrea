@@ -236,27 +236,35 @@
         
       </h2>
 
-      <div class="about-text">
-        <p>
-          My name is Andrea. I’m a graphic designer, independent and
-          multidisciplinary by nature, specialized in editorial design, art
-          direction and digital content. From the beginning, design was never
-          just about visuals for me, but about meaning — understanding context,
-          shaping concepts and building identities that communicate with
-          intention.
-        </p>
+      <div class="about-text-wrapper">
+        <div id="aboutText" class="about-text-content">
+          <div class="about-text">
+            <p>
+              My name is Andrea. I’m a graphic designer, independent and
+              multidisciplinary by nature, specialized in editorial design, art
+              direction and digital content. From the beginning, design was never
+              just about visuals for me, but about meaning — understanding context,
+              shaping concepts and building identities that communicate with
+              intention.
+            </p>
 
-        <p>
-          I work closely with clients, valuing collaboration as an essential
-          part of the process. I believe design should never exist without
-          purpose. Every project needs direction, structure and a strong visual
-          language to speak clearly and stand out authentically.
-        </p>
+            <p>
+              I work closely with clients, valuing collaboration as an essential
+              part of the process. I believe design should never exist without
+              purpose. Every project needs direction, structure and a strong visual
+              language to speak clearly and stand out authentically.
+            </p>
 
-        <p>
-          Today, I collaborate with real brands, creating visual systems that go
-          beyond trends. I design with ambition, clarity and conviction.
-        </p>
+            <p>
+              Today, I collaborate with real brands, creating visual systems that go
+              beyond trends. I design with ambition, clarity and conviction.
+            </p>
+          </div>
+        </div>
+        
+        <button class="text-toggle" aria-controls="aboutPanel" aria-expanded="false" aria-label="Expand about text">—</button>
+        <!-- Sliding panel (populated & toggled by JS on small screens) -->
+        <div id="aboutPanel" class="about-panel" aria-hidden="true"></div>
       </div>
     </div>
   </section>

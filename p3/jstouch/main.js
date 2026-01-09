@@ -228,6 +228,83 @@
 })();
 
 // ============================================
+// ABOUT: mobile slide-up editorial panel
+// ============================================
+(() => {
+  const wrapper = document.querySelector(".about-text-wrapper");
+  const toggle = document.querySelector(".text-toggle");
+  const source = document.getElementById("aboutText");
+  const panel = document.getElementById("aboutPanel");
+  const snap = document.querySelector(".snap");
+
+  if (!wrapper || !toggle || !source || !panel) return;
+
+  const mq = () => window.matchMedia("(max-width:480px)").matches;
+
+  function openPanel() {
+    if (!mq()) return;
+    if (panel.classList.contains("open")) return;
+
+    // populate panel content (use a clean inner wrapper)
+    const inner = document.createElement("div");
+    inner.className = "about-panel-inner";
+    inner.innerHTML = source.innerHTML;
+    panel.innerHTML = "";
+    panel.appendChild(inner);
+
+    // show panel and disable underlying scroll
+    panel.style.display = "block";
+    if (snap) snap.classList.add("no-scroll");
+
+    // give the browser a frame to apply display before transitioning
+    requestAnimationFrame(() => {
+      panel.classList.add("open");
+      panel.setAttribute("aria-hidden", "false");
+      toggle.setAttribute("aria-expanded", "true");
+      // focus for accessibility
+      inner.setAttribute("tabindex", "-1");
+      inner.focus();
+    });
+  }
+
+  function closePanel() {
+    if (!panel.classList.contains("open")) return;
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    if (snap) snap.classList.remove("no-scroll");
+
+    const onEnd = (e) => {
+      if (e && e.propertyName && e.propertyName !== "transform") return;
+      panel.style.display = "none";
+      panel.removeEventListener("transitionend", onEnd);
+      // keep panel content for next open
+    };
+
+    panel.addEventListener("transitionend", onEnd);
+  }
+
+  // Toggle behavior: on mobile only
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!mq()) return;
+    if (panel.classList.contains("open")) closePanel();
+    else openPanel();
+  });
+
+  // Ensure panel is closed on resize to larger screens
+  window.addEventListener("resize", () => {
+    if (!mq()) {
+      panel.classList.remove("open");
+      panel.style.display = "none";
+      panel.setAttribute("aria-hidden", "true");
+      toggle.setAttribute("aria-expanded", "false");
+      if (snap) snap.classList.remove("no-scroll");
+    }
+  });
+})();
+
+// ============================================
 // FOOTER TOGGLE - Collapsible footer
 // ============================================
 (() => {

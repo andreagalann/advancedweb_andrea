@@ -88,6 +88,11 @@ body {
   scroll-behavior: smooth;
 }
 
+/* When panel is open, prevent scrolling inside the snap container */
+.snap.no-scroll {
+  overflow: hidden;
+}
+
 .section {
   height: 100vh;
   scroll-snap-align: start;
@@ -110,7 +115,7 @@ body {
 }
 
 .hero-grid {
-  height: calc(100vh - var(--header-h));
+  min-height: calc(100vh - var(--header-h));
   padding: calc(var(--pad-y) + 6px) var(--pad-x) var(--pad-y);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -146,7 +151,11 @@ body {
   letter-spacing: -0.02em;
   line-height: 1;
   font-size: clamp(52px, 7.8vw, 100px);
-  white-space: nowrap;
+  /* Allow wrapping on small viewports to avoid overflow */
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .hero-right {
@@ -1079,6 +1088,132 @@ body {
 
   .wordmark {
     font-size: clamp(20px, 10vw, 40px);
+  }
+}
+
+/* =========================
+   ABOUT - mobile collapse + upward shift
+   ========================= */
+@media (max-width: 480px) {
+  /* Shift the about block slightly upward to leave more white space at bottom */
+  .section.about {
+    padding-top: calc(var(--header-h) - 18px);
+  }
+
+  .about-grid {
+    transform: translateY(-6vh);
+    padding-bottom: 56px; /* ensure space at bottom after shift */
+  }
+
+  /* Collapsible text wrapper */
+  .about-text-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Hide the inline long descriptive text on mobile — it will appear in the sliding panel */
+  .about-text-content {
+    display: none;
+  }
+
+  .about-text-wrapper.expanded {
+    position: relative;
+    z-index: 40; /* keep expanded content above following sections */
+  }
+
+  .about-text-wrapper.expanded .about-text-content {
+    max-height: 2000px; /* large enough to reveal full content */
+    padding: 18px 16px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    background: #fff;
+  }
+
+  .about-text-wrapper.expanded .about-text-content::after {
+    display: none;
+  }
+
+  /* Minimal inline text toggle (no button styling) */
+  .text-toggle {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    color: #000;
+    font-family: "scale-variable", sans-serif;
+    font-variation-settings: "wght" 400, "wdth" 100;
+    font-size: 20px;
+    line-height: 1;
+    padding: 6px 0 0 0;
+    margin-top: 12px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    width: auto;
+    align-self: center;
+    /* fixed control positioned near bottom so it remains visible */
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
+    z-index: 60;
+  }
+
+  /* keep the toggle visually subtle and aligned with text flow */
+  .text-toggle:focus {
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  /* Sliding editorial panel (mobile) */
+  .about-panel {
+    --panel-width: 92%;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%) translateY(110%);
+    bottom: 0;
+    width: var(--panel-width);
+    max-width: 720px;
+    height: 78vh;
+    background: #fff;
+    box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 8px 8px 0 0;
+    padding: 18px 16px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1),
+      opacity 260ms ease;
+    opacity: 0;
+    z-index: 50;
+    display: none; /* start hidden until JS enables behavior */
+  }
+
+  .about-panel.open {
+    display: block;
+    transform: translateX(-50%) translateY(0%);
+    opacity: 1;
+  }
+
+  .about-panel .about-panel-inner {
+    font-family: "acumin-pro", sans-serif;
+    color: #111;
+    line-height: 1.6;
+    font-size: clamp(14px, 3.6vw, 16px);
+  }
+
+  /* Ensure content under panel isn't interactable when open */
+  .about-panel.open ~ * {
+    pointer-events: none;
+  }
+
+  /* Hide toggle on larger screens */
+  @media (min-width: 481px) {
+    .text-toggle {
+      display: none;
+    }
   }
 }
 
