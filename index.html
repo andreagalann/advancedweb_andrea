@@ -2,79 +2,351 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Web Project - WEB ATELIER (UDIT)</title>
-    <meta
-      name="my portfolio"
-      content="A student web project for WEB ATELIER (UDIT) course"
-    />
-    <meta
-      name="keywords"
-      content="HTML, CSS, web development, SEO, accessibility"
-    />
-    <meta name="author" content="Your Name" />
-    <meta name="robots" content="index, follow" />
-    <link rel="stylesheet" href="../assets/css/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="images/favicon-32x32.svg" />
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="images/favicon-16x16.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.svg" />
+    <title>Design by Andrea</title>
+
+    <!-- Adobe Fonts (Scale VF + Acumin Pro) -->
+    <link rel="stylesheet" href="https://use.typekit.net/fvp4ryh.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
-	<input type="radio" name="theme" id="theme-auto" hidden checked />
-		<input type="radio" name="theme" id="theme-light" hidden />
-		<input type="radio" name="theme" id="theme-dark" hidden />
-		<div class="app">
-    <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- HEADER (fixed) -->
+    <header class="site-header">
+      <a class="brand" href="#home">DESIGN BY ANDREA ©</a>
 
-    <header>
-      <div class="container">
-        <h1>My Web Project</h1>
-        <p>Student Project - WEB ATELIER (UDIT)</p>
-      </div>
+      <button class="hamburger" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <nav id="primary-nav" class="nav" aria-label="Primary">
+        <a class="nav-link is-active" href="#home">WELCOME</a>
+        <a class="nav-link" href="#services">SERVICES</a>
+        <a class="nav-link" href="#works">WORKS</a>
+        <a class="nav-link" href="#about">ABOUT</a>
+        <a class="nav-link" href="#contact">CONTACT</a>
+      </nav>
     </header>
 
-    <main id="main" class="container">
-      <section>
-        <h2>Welcome</h2>
-        <p>
-          This is the starting point for my web project. I will build this
-          incrementally, committing progress after each class.
-        </p>
-        <img
-          src="https://ik.imagekit.io/andreagdn27/default-image.jpg?updatedAt=1758201218464"
-          alt="Project Screenshot"
-        />
-        <h3>Project Goals</h3>
-        <ul>
-          <li>Create a responsive, accessible website</li>
-          <li>Practice semantic HTML</li>
-          <li>Implement modern CSS techniques</li>
-          <li>Follow web accessibility guidelines</li>
-        </ul>
+    <!-- SCROLL SNAP WRAPPER -->
+    <main class="snap" id="snap">
+      <!-- HERO (screen 1) -->
+      <section class="section hero" id="home">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <h1 class="claim">
+              DESIGNING<br />
+              VISUAL IDENTITIES<br />
+              WITH PURPOSE.
+            </h1>
+
+            <!-- Wordmark en UNA sola línea -->
+            <div class="wordmark" aria-label="Design by Andrea wordmark">
+              DESIGN BY ANDREA ©
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <img class="dni" src="images/DNI.png" alt="DNI visual" />
+          </div>
+        </div>
       </section>
 
-      <section>
-        <h2>Weekly Progress</h2>
-        <p>
-          Check my
-          <a href="https://github.com/[username]/[project-repo]/commits/main"
-            >commit history</a
-          >
-        </p>
+      <!-- STATEMENT (screen 2) -->
+      <section class="section statement" id="statement">
+        <div class="statement-inner">
+          <p class="statement-text">
+            I help brands exist in a different way.<br />
+            Through a 360° approach<br />
+            strategy, design and digital<br />
+            I create modern and distinctive brand universes.<br />
+            Above all, memorable ones.<br />
+            Because standing out is essential.<br />
+            It’s not a concept, it’s my standard.
+          </p>
+        </div>
       </section>
+
+      <!-- SERVICES (screen 3) - UNA PANTALLA CON MÚLTIPLES SECCIONES -->
+      <section class="section services" id="services" aria-label="Services">
+        <div class="services-top">
+          <div class="services-title">Services</div>
+        </div>
+          <!-- Services content: primary list + detailed service screen -->
+          <div class="services-container">
+          <!-- Sección 1: BRANDING -->
+          <div class="service-section" data-service="branding">
+            <a class="service-button" data-key="branding" href="services.html">
+              <span class="service-label">BRANDING</span>
+            </a>
+          </div>
+
+          <!-- Sección 2: WEB DESIGN -->
+          <div class="service-section" data-service="web">
+            <a class="service-button" data-key="web" href="services.html">
+              <span class="service-label">WEB DESIGN</span>
+            </a>
+          </div>
+
+          <!-- Sección 3: CREATIVE SUPPORT -->
+          <div class="service-section" data-service="support">
+            <a class="service-button" data-key="support" href="services.html">
+              <span class="service-label">CREATIVE SUPPORT</span>
+            </a>
+          </div>
+
+          <!-- Sección 4: SOCIAL MEDIA -->
+          <div class="service-section" data-service="social">
+            <a class="service-button" data-key="social" href="services.html">
+              <span class="service-label">SOCIAL MEDIA</span>
+            </a>
+          </div>
+
+          <a class="services-cta" href="services.html">VIEW SERVICES</a>
+        </div>
+        
+
+        <!-- Imágenes flotantes con parallax -->
+        <div class="services-floats" id="servicesStage">
+          <img
+            class="float-img is-active"
+            data-key="branding"
+            src="images/c4.png"
+            alt="Branding project"
+          />
+          <img
+            class="float-img"
+            data-key="web"
+            src="images/webdesign.png"
+            alt="Web design project"
+          />
+          <img
+            class="float-img"
+            data-key="support"
+            src="images/cs.png"
+            alt="Creative support project"
+          />
+          <img
+            class="float-img"
+            data-key="social"
+            src="images/LONG2.png"
+            alt="Social media project"
+          />
+        </div>
+      </section>
+      <section class="section works" id="works" aria-label="Works">
+        <div class="works-top">
+          <div class="works-kicker">Recent projects</div>
+        </div>
+
+        <div class="works-grid" role="list">
+          <!-- 1 -->
+          <article class="work-card" role="listitem">
+            <div class="work-media">
+              <img
+                src="images/LONG2.png"
+                alt="Longchamp Campaign Daily"
+                loading="lazy"
+              />
+            </div>
+            <p class="work-caption">Longchamp Campaing “Daily”</p>
+          </article>
+
+          <!-- 2 -->
+          <article class="work-card" role="listitem">
+            <div class="work-media">
+              <img src="images/c1.png" alt="Velocity Archives" loading="lazy" />
+            </div>
+            <p class="work-caption">Velocity Archives</p>
+          </article>
+
+          <!-- 3 -->
+          <article class="work-card" role="listitem">
+            <div class="work-media">
+              <img
+                src="images/restaurant .png"
+                alt="Ichiraku Ramen"
+                loading="lazy"
+              />
+            </div>
+            <p class="work-caption">Ichiraku Ramen</p>
+          </article>
+
+          <!-- 4 -->
+          <article class="work-card" role="listitem">
+            <div class="work-media">
+              <img
+                src="images/natura.png"
+                alt="Natura Rebranding"
+                loading="lazy"
+              />
+            </div>
+            <p class="work-caption">Natura Rebranding</p>
+          </article>
+
+          <!-- 5 -->
+          <article class="work-card" role="listitem">
+            <div class="work-media">
+              <img
+                src="images/plantilla.png"
+                alt="Yorokobu Magazine Cover"
+                loading="lazy"
+              />
+            </div>
+            <p class="work-caption">Yorokobu Magazine Cover</p>
+          </article>
+
+          <!-- 6 -->
+          <article class="work-card" role="listitem">
+            <div class="work-media">
+              <img src="images/up1.png" alt="Up Coffe" loading="lazy" />
+            </div>
+            <p class="work-caption">Up Coffe</p>
+          </article>
+        </div>
+      </section>
+      <section class="section about" id="about">
+  <div class="about-grid">
+    <!-- LEFT -->
+    <div class="about-left">
+      <div class="about-intro">
+        <span class="about-label">My approach</span>
+        <span class="about-tagline">
+          The vision of an agency.<br />
+          The passion of a freelance.
+        </span>
+      </div>
+
+      <img
+        class="about-image"
+        src="images/yo.JPG"
+        alt="Andrea portrait"
+      />
+    </div>
+
+    <!-- RIGHT -->
+    <div class="about-right">
+      <h2 class="about-headline">
+        I’ve always been fascinated by society 
+        <p>and how it can evolve.</p>
+           I see
+        design as a powerful tool combining logic, 
+        <p>precision and human interaction to shape change.</p>
+        
+      </h2>
+
+      <div class="about-text-wrapper">
+        <div id="aboutText" class="about-text-content">
+          <div class="about-text">
+            <p>
+              My name is Andrea. I’m a graphic designer, independent and
+              multidisciplinary by nature, specialized in editorial design, art
+              direction and digital content. From the beginning, design was never
+              just about visuals for me, but about meaning — understanding context,
+              shaping concepts and building identities that communicate with
+              intention.
+            </p>
+
+            <p>
+              I work closely with clients, valuing collaboration as an essential
+              part of the process. I believe design should never exist without
+              purpose. Every project needs direction, structure and a strong visual
+              language to speak clearly and stand out authentically.
+            </p>
+
+            <p>
+              Today, I collaborate with real brands, creating visual systems that go
+              beyond trends. I design with ambition, clarity and conviction.
+            </p>
+          </div>
+        </div>
+        
+        <button class="text-toggle" aria-controls="aboutPanel" aria-expanded="false" aria-label="Expand about text">—</button>
+        <!-- Sliding panel (populated & toggled by JS on small screens) -->
+        <div id="aboutPanel" class="about-panel" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section contact" id="contact">
+    <!-- Contact Header with Image -->
+    <div class="contact-top">
+      <div class="contact-content">
+        <h2 class="contact-headline">
+          DIFFERENT TODAY.<br />
+          BUILT TO LAST.
+        </h2>
+      </div>
+      <div class="footer-marquee">
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+          </div>
+
+          <div class="marquee-content" aria-hidden="true">
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+            <span>DESIGN BY ANDREA © </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Inside Contact -->
+    <div class="contact-footer">
+      <button class="footer-toggle" aria-label="Toggle footer" aria-expanded="false">
+        <span class="toggle-icon">+</span>
+      </button>
+      <div class="footer-container-narrow" id="footerContent">
+        <div class="footer-top-narrow">
+          <div class="footer-location">MADRID, SPAIN</div>
+          <div class="footer-tagline">For what comes next.</div>
+        </div>
+
+        <div class="footer-main-narrow">
+          <div class="footer-wordmark-narrow" aria-label="Footer wordmark">
+            DESIGN BY ANDREA <span class="copyright">©</span>
+          </div>
+        </div>
+
+        <div class="footer-bottom-narrow">
+          <div class="footer-info-narrow">
+            <p>Creating visual identities with purpose.</p>
+            <p>Branding, web design & digital experiences.</p>
+          </div>
+          <div class="footer-social-narrow">
+            <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" class="social-link-narrow">
+              <span class="social-label">LINKEDIN</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a href="https://www.instagram.com/tu-perfil" target="_blank" rel="noopener noreferrer" class="social-link-narrow">
+              <span class="social-label">INSTAGRAM</span>
+              <span class="social-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="footer-legal">© 2026 DESIGN BY ANDREA. All rights reserved.</div>
+      </div>
+    </div>
+  </section>
+
     </main>
 
-    <footer>
-      <div class="container">
-        <p>© 2025 [Your Name] — WEB ATELIER (UDIT) · Web Design (2025 Fall).</p>
-        <p>
-          <a href="https://github.com/ruvebal/web-atelier-udit"
-            >Course Framework</a
-          >
-          ·
-          <a href="project-brief.md">Project Brief</a>
-        </p>
-      </div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
+    <script src="jstouch/main.js"></script>
   </body>
 </html>
